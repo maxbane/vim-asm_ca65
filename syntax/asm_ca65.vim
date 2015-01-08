@@ -1,7 +1,6 @@
 " Vim syntax file
-" Language:	CA65 Assembler for 6502 Architectures
-" Maintainer: Max Bane <max.bane@gmail.com>
-" Last Change:	2014 Feb 04
+" Language:     CA65 Assembler for 6502 Architectures
+" Maintainer:   Max Bane <max.bane@gmail.com>
 
 " Heavily derived from the 2014-Feb-04 version of Erik Wognsen's asm.vim,
 " included in the Vim distribution.
