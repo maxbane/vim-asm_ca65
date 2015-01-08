@@ -23,6 +23,16 @@ conventions, and especially not with `ca65`'s many added features in particular.
 
 ### Examples (screenshots)
 
+#### Solarized colorscheme
+![](https://raw.githubusercontent.com/maxbane/vim-syntax-asm_ca65/screenshots/sshot0-solarized.png)
+
+![](https://raw.githubusercontent.com/maxbane/vim-syntax-asm_ca65/screenshots/sshot1-solarized.png)
+
+#### Elflord colorscheme
+![](https://raw.githubusercontent.com/maxbane/vim-syntax-asm_ca65/screenshots/sshot0-elflord.png)
+
+![](https://raw.githubusercontent.com/maxbane/vim-syntax-asm_ca65/screenshots/sshot1-elflord.png)
+
 ## Limitations
 
 ## Installation
