@@ -2,9 +2,6 @@
 " Language:     CA65 Assembler for 6502 Architectures
 " Maintainer:   Max Bane <max.bane@gmail.com>
 
-" Heavily derived from the 2014-Feb-04 version of Erik Wognsen's asm.vim,
-" included in the Vim distribution.
-
 " For version 5.x: Clear all syntax items
 " For version 6.0 and later: Quit when a syntax file was already loaded
 if version < 600
