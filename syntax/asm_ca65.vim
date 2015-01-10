@@ -19,19 +19,19 @@ set cpo&vim
 syn case ignore
 
 " Numeric literals
-syn match asm_ca65DecNumber		"\<\d\+\>"
-syn match asm_ca65HexNumber		"\$[0-9a-fA-F]\+\>"
-syn match asm_ca65HexNumber		"\<[0-9a-fA-F]\+h\>"
-syn match asm_ca65BinNumber		"%[0-1]\+\>"
+syn match asm_ca65DecNumber "\<\d\+\>"
+syn match asm_ca65HexNumber "\$[0-9a-fA-F]\+\>"
+syn match asm_ca65HexNumber "\<[0-9a-fA-F]\+h\>"
+syn match asm_ca65BinNumber "%[0-1]\+\>"
 
 " labels and identifiers
-syn match asm_ca65Identifier		"[a-z_][a-z0-9_]*"
-syn match asm_ca65Label		        "[a-z_][a-z0-9_]*:"he=e-1
-syn match asm_ca65Identifier		"[a-z_][a-z0-9_]*::"he=e-2
+syn match asm_ca65Identifier    "[a-z_][a-z0-9_]*"
+syn match asm_ca65Label         "[a-z_][a-z0-9_]*:"he=e-1
+syn match asm_ca65Identifier    "[a-z_][a-z0-9_]*::"he=e-2
 " FIXME this doesn't hightlight :-/
 syn match asm_ca65Op                "::"
 
-syn match asm_ca65UnknownCommand "\.\w*\>"
+syn match asm_ca65UnknownCommand    "\.\w*\>"
 
 " expression operators
 syn match asm_ca65Op "+"
@@ -97,16 +97,16 @@ syn region asm_ca65FileOptString contained start=+"+ skip=+\\"+ end=+"+
 syn region asm_ca65Segment       start=/.segment\s\+"/ skip=/\\"/ end=/"/ contains=asm_ca65SpecialSegment
 syn keyword asm_ca65AddressSize  DIRECT ZEROPAGE ZP ABS ABSOLUTE NEAR FAR LONG DWORD
 syn keyword asm_ca65SpecialSegment  contained ZEROPAGE ZP CODE RODATA BSS DATA
-syn match asm_ca65Segment                 "\.popseg\>"
+syn match asm_ca65Segment               "\.popseg\>"
 syn match asm_ca65SpecialSegmentCommand "\.bss\>"
 syn match asm_ca65SpecialSegmentCommand "\.data\>"
 syn match asm_ca65SpecialSegmentCommand "\.rodata\>"
 syn match asm_ca65SpecialSegmentCommand "\.rodata\>"
 syn match asm_ca65SpecialSegmentCommand "\.zeropage\>"
 "   Includes
-syn match asm_ca65Include	"\.include\>"
-syn match asm_ca65Include	"\.incbin\>"
-syn match asm_ca65Include	"\.macpack\>"
+syn match asm_ca65Include    "\.include\>"
+syn match asm_ca65Include    "\.incbin\>"
+syn match asm_ca65Include    "\.macpack\>"
 "   Imports / Exports
 "   Storage types
 syn match asm_ca65Type "\.addr\>"
@@ -122,39 +122,39 @@ syn match asm_ca65Type "\.lobytes\>"
 syn match asm_ca65Type "\.tag\>"
 syn match asm_ca65Type "\.word\>"
 "   Conditionals
-syn match asm_ca65Cond		"\.if\>"
-syn match asm_ca65Cond		"\.ifp02\>"
-syn match asm_ca65Cond		"\.ifpc02\>"
-syn match asm_ca65Cond		"\.ifpsc02\>"
-syn match asm_ca65Cond		"\.ifp816\>"
-syn match asm_ca65Cond		"\.ifblank\>"
-syn match asm_ca65Cond		"\.ifconst\>"
-syn match asm_ca65Cond		"\.ifnblank\>"
-syn match asm_ca65Cond		"\.ifdef\>"
-syn match asm_ca65Cond		"\.ifndef\>"
-syn match asm_ca65Cond		"\.ifref\>"
-syn match asm_ca65Cond		"\.ifnref\>"
-syn match asm_ca65Cond		"\.else\>"
-syn match asm_ca65Cond		"\.elseif\>"
-syn match asm_ca65Cond		"\.endif\>"
+syn match asm_ca65Cond        "\.if\>"
+syn match asm_ca65Cond        "\.ifp02\>"
+syn match asm_ca65Cond        "\.ifpc02\>"
+syn match asm_ca65Cond        "\.ifpsc02\>"
+syn match asm_ca65Cond        "\.ifp816\>"
+syn match asm_ca65Cond        "\.ifblank\>"
+syn match asm_ca65Cond        "\.ifconst\>"
+syn match asm_ca65Cond        "\.ifnblank\>"
+syn match asm_ca65Cond        "\.ifdef\>"
+syn match asm_ca65Cond        "\.ifndef\>"
+syn match asm_ca65Cond        "\.ifref\>"
+syn match asm_ca65Cond        "\.ifnref\>"
+syn match asm_ca65Cond        "\.else\>"
+syn match asm_ca65Cond        "\.elseif\>"
+syn match asm_ca65Cond        "\.endif\>"
 "   Macro stuff
-syn match asm_ca65Macro		"\.macro\s\+[a-z0-9_]*" contains=asm_ca65MacroName
-syn match asm_ca65MacroName "\s[a-z_][a-z0-9_]*"hs=s+1 contained
-syn match asm_ca65Macro		"\.endmacro\>"
-syn match asm_ca65Macro		"\.exitmacro\>"
-syn match asm_ca65Macro		"\.exitmac\>"
-syn match asm_ca65Macro		"\.delmacro\>"
-syn match asm_ca65Macro		"\.local\>"
-syn match asm_ca65Define	"\.define\>"
-syn match asm_ca65Define	"\.undefine\>"
-syn match asm_ca65Define	"\.undef\>"
+syn match asm_ca65Macro         "\.macro\s\+[a-z0-9_]*" contains=asm_ca65MacroName
+syn match asm_ca65MacroName     "\s[a-z_][a-z0-9_]*"hs=s+1 contained
+syn match asm_ca65Macro         "\.endmacro\>"
+syn match asm_ca65Macro         "\.exitmacro\>"
+syn match asm_ca65Macro         "\.exitmac\>"
+syn match asm_ca65Macro         "\.delmacro\>"
+syn match asm_ca65Macro         "\.local\>"
+syn match asm_ca65Define        "\.define\>"
+syn match asm_ca65Define        "\.undefine\>"
+syn match asm_ca65Define        "\.undef\>"
 "   Structy stuff
-syn match asm_ca65Struct    "\.\(struct\|union\|scope\)\s\+[a-z0-9_]*" contains=asm_ca65StructName
-syn match asm_ca65Struct    "\.enum\s\?[a-z0-9_]*" contains=asm_ca65StructName
-syn match asm_ca65Struct    "\.end\(struct\|union\|enum\|scope\|proc\)\>"
-syn match asm_ca65StructName "\s[a-z_][a-z0-9_]*"hs=s+1 contained
-syn match asm_ca65Struct    "\.proc\s\+[a-z0-9_]*" contains=asm_ca65ProcName
-syn match asm_ca65ProcName  "\s[a-z_][a-z0-9_]*"hs=s+1 contained
+syn match asm_ca65Struct        "\.\(struct\|union\|scope\)\s\+[a-z0-9_]*" contains=asm_ca65StructName
+syn match asm_ca65Struct        "\.enum\s\?[a-z0-9_]*" contains=asm_ca65StructName
+syn match asm_ca65Struct        "\.end\(struct\|union\|enum\|scope\|proc\)\>"
+syn match asm_ca65StructName    "\s[a-z_][a-z0-9_]*"hs=s+1 contained
+syn match asm_ca65Struct        "\.proc\s\+[a-z0-9_]*" contains=asm_ca65ProcName
+syn match asm_ca65ProcName      "\s[a-z_][a-z0-9_]*"hs=s+1 contained
 " FIXME: this doesn't seem to catch the end of the struct (folds all the way to
 " EOF)
 "syn region asm_ca65StructFold start="\.struct" end="\.endstruct" fold transparent 
@@ -239,12 +239,12 @@ syn match asm_ca65Builtin   "\.assert\>"
 syn match asm_ca65Builtin   "\.set\>"
 
 " String and char literals
-syn region asm_ca65String    start=+"+ skip=+\\"+ end=+"+
-syn region asm_ca65Char      start=+'+ skip=+\\'+ end=+'+
+syn region asm_ca65String   start=+"+ skip=+\\"+ end=+"+
+syn region asm_ca65Char     start=+'+ skip=+\\'+ end=+'+
 
 " Line comments
-syn match asm_ca65Comment	";.*" contains=asm_ca65Todo
-syn keyword asm_ca65Todo		contained TODO FIXME XXX HACK
+syn match asm_ca65Comment   ";.*" contains=asm_ca65Todo
+syn keyword asm_ca65Todo    contained TODO FIXME XXX HACK
 
 syn case match
 
@@ -259,32 +259,32 @@ if version >= 508 || !exists("did_asm_ca65_syntax_inits")
     command -nargs=+ HiLink hi def link <args>
   endif
 
-  HiLink asm_ca65Comment	 Comment
-  HiLink asm_ca65Todo	     Todo
-  HiLink asm_ca65Mnemonic    Keyword
-  HiLink asm_ca65Label	     Identifier
-  HiLink asm_ca65Identifier	 NONE
+  HiLink asm_ca65Comment    Comment
+  HiLink asm_ca65Todo       Todo
+  HiLink asm_ca65Mnemonic   Keyword
+  HiLink asm_ca65Label      Identifier
+  HiLink asm_ca65Identifier NONE
 
-  HiLink asm_ca65MnemonicIllegal Special
+  HiLink asm_ca65MnemonicIllegal    Special
 
-  HiLink asm_ca65Include	Include
-  HiLink asm_ca65Cond	    PreCondit
-  HiLink asm_ca65Macro	    Macro
-  HiLink asm_ca65Define	    Define
-  HiLink asm_ca65MacroName	Function
+  HiLink asm_ca65Include    Include
+  HiLink asm_ca65Cond       PreCondit
+  HiLink asm_ca65Macro      Macro
+  HiLink asm_ca65Define     Define
+  HiLink asm_ca65MacroName  Function
 
   HiLink asm_ca65HexNumber  Number
-  HiLink asm_ca65DecNumber	Number
-  HiLink asm_ca65BinNumber	Number
-  HiLink asm_ca65String	    String
-  HiLink asm_ca65Char	    Character
+  HiLink asm_ca65DecNumber  Number
+  HiLink asm_ca65BinNumber  Number
+  HiLink asm_ca65String     String
+  HiLink asm_ca65Char       Character
 
-  HiLink asm_ca65UnknownCommand	 Error
+  HiLink asm_ca65UnknownCommand Error
 
-  HiLink asm_ca65Type	         Type
-  HiLink asm_ca65Segment         PreProc
-  HiLink asm_ca65AddressSize     StorageClass
-  HiLink asm_ca65SpecialSegment  Delimiter
+  HiLink asm_ca65Type                   Type
+  HiLink asm_ca65Segment                PreProc
+  HiLink asm_ca65AddressSize            StorageClass
+  HiLink asm_ca65SpecialSegment         Delimiter
   HiLink asm_ca65SpecialSegmentCommand  Delimiter
 
   HiLink asm_ca65FileOpt         PreProc
@@ -294,23 +294,22 @@ if version >= 508 || !exists("did_asm_ca65_syntax_inits")
   HiLink asm_ca65SpecialPrefix   SpecialChar
   HiLink asm_ca65Op              Operator
 
-  HiLink asm_ca65Struct	         Keyword
-  HiLink asm_ca65StructName	     Structure
-  HiLink asm_ca65ProcName	     Function
+  HiLink asm_ca65Struct     Keyword
+  HiLink asm_ca65StructName Structure
+  HiLink asm_ca65ProcName   Function
 
-  HiLink asm_ca65PseudoVar	     Special
-  HiLink asm_ca65PseudoFun	     Function
+  HiLink asm_ca65PseudoVar  Special
+  HiLink asm_ca65PseudoFun  Function
 
-  HiLink asm_ca65ConsoleOut	     Function
-  HiLink asm_ca65ConsoleWarn	 Debug
-  HiLink asm_ca65ConsoleError	 Special
-  HiLink asm_ca65ConsoleFatal	 Underlined
+  HiLink asm_ca65ConsoleOut     Function
+  HiLink asm_ca65ConsoleWarn    Debug
+  HiLink asm_ca65ConsoleError   Special
+  HiLink asm_ca65ConsoleFatal   Underlined
 
-  HiLink asm_ca65Linker	 StorageClass
+  HiLink asm_ca65Linker StorageClass
 
-  HiLink asm_ca65SpecialSwitch	 Underlined
-  HiLink asm_ca65Builtin	 Function
-
+  HiLink asm_ca65SpecialSwitch  Underlined
+  HiLink asm_ca65Builtin        Function
 
   delcommand HiLink
 endif
@@ -319,6 +318,4 @@ let b:current_syntax = "asm_ca65"
 
 let &cpo = s:cpo_save
 unlet s:cpo_save
-
-" vim: ts=8
 
