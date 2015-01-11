@@ -1,11 +1,11 @@
 # vim-syntax-asm_ca65
-Vim syntax highlighting for the `ca65` assembler.
+Vim plugin for the `ca65` assembly language.
 
 ## Purpose
 
-This repository provides `asm_ca65.vim`, a [Vim](http://www.vim.org/)
-syntax-highlighting module for the
-[`ca65`](http://cc65.github.io/doc/ca65.html) assembler.
+This repository provides a [Vim](http://www.vim.org/)
+syntax-highlighting plugin, auto-indent plugin, and filetype plugin for the
+[`ca65`](http://cc65.github.io/doc/ca65.html) assembly language.
 
 `ca65` is a full-featured assembler for the [MOS
 6502](https://en.wikipedia.org/wiki/MOS_Technology_6502) family of
@@ -24,17 +24,26 @@ conventions, and especially not with `ca65`'s many added features.
 
 ## Features
 
-* Highlights 6502 instruction mnemonics as keywords, with special highlighting
-  for "illegal" instructions, and error highlighting for unknown (typo)
-  instructions.
-* Highlights all valid `ca65` numeric and string literals, label
-  definitions, and comments, with special highlighting for TODOs, FIXMEs, etc.
-* Highlights all valid expression operators and control comands, with special
-  treatment for various classes of commands, including `.fileopt`, segment
-  names, includes, macro definitions, storage types, conditional assembly,
-  linker control commands, structs, unions, procedures, pseudo-functions, some
-  built-in macros, console output commands (`.out`, `.warn`, .etc.), and
-  assembler behavior switches.
+* Syntax highlighting
+    * Highlights 6502 instruction mnemonics as keywords, with special highlighting
+      for "illegal" instructions, and error highlighting for unknown (typo)
+      instructions.
+    * Highlights all valid `ca65` numeric and string literals, label
+      definitions, and comments, with special highlighting for TODOs, FIXMEs, etc.
+    * Highlights all valid expression operators and control comands, with special
+      treatment for various classes of commands, including `.fileopt`, segment
+      names, includes, macro definitions, storage types, conditional assembly,
+      linker control commands, structs, unions, procedures, pseudo-functions, some
+      built-in macros, console output commands (`.out`, `.warn`, .etc.), and
+      assembler behavior switches.
+* Auto-indent
+    * Auto-indent under labels, `.proc`s, `.if` statements, macro definitions,
+      macro call parameters, scopes, unions, and structs.  Automatically
+      de-dent when closing these structures.
+* Filetype plugin
+    * Defines `ca65` comment syntax for Vim's automatic comment formatting features.
+    * Recognizes `.include`, `.incbin`, and `.macpack` statements for Vim's
+      include-aware features.
 
 ### Examples (screenshots)
 
@@ -59,11 +68,21 @@ conventions, and especially not with `ca65`'s many added features.
   * `.feature labels_without_colons`
   * `.feature underline_in_numbers`
 
-## Installation
+## Installation and Usage
 
-Simply place `asm_ca65.vim` in your `~/.vim/syntax/` directory, or, if you use
-Pathogen, clone this repository under `~/.vim/bundle/`.
+Install in the normal way (i.e., place the contents of the `syntax/`, `indent`/
+and `ftplugin/` directories in corresonding locations in your vim runtime
+path), or, if you use [Pathogen](https://github.com/tpope/vim-pathogen), clone
+this repository under `~/.vim/bundle/`.
 
-## Usage
+Everything is enabled by setting a buffer's `filetype` to `asm_ca65`. For
+example, if all of your `ca65` assembly source files end with the `.s` and
+`.inc.`, suffixes, the follwing suffices in your `.vimrc`:
 
-`:set syntax=asm_ca65` or create an `autocmd`, as with any syntax module.
+```vim
+filetype plugin indent on
+augroup filetypedetect
+    au BufNewFile,BufRead *.s,*.inc set ft=asm_ca65
+augroup END
+```
+
