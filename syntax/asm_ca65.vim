@@ -105,7 +105,7 @@ syn match asm_ca65Include    "\.include\>"
 syn match asm_ca65Include    "\.incbin\>"
 syn match asm_ca65Include    "\.macpack\>"
 "   Imports / Exports
-"   Storage types
+"   Storage types / reservation
 syn match asm_ca65Type "\.addr\>"
 syn match asm_ca65Type "\.faraddr\>"
 syn match asm_ca65Type "\.asciiz\>"
@@ -118,6 +118,7 @@ syn match asm_ca65Type "\.hibytes\>"
 syn match asm_ca65Type "\.lobytes\>"
 syn match asm_ca65Type "\.tag\>"
 syn match asm_ca65Type "\.word\>"
+syn match asm_ca65Type "\.res\>"
 "   Conditionals
 syn match asm_ca65Cond        "\.if\>"
 syn match asm_ca65Cond        "\.ifp02\>"
