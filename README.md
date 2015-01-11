@@ -1,4 +1,4 @@
-# vim-syntax-asm_ca65
+# vim-asm_ca65
 Vim plugin for the `ca65` assembly language.
 
 ## Purpose
