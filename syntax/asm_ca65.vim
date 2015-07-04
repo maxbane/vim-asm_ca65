@@ -135,6 +135,8 @@ syn match asm_ca65Cond        "\.ifnref\>"
 syn match asm_ca65Cond        "\.else\>"
 syn match asm_ca65Cond        "\.elseif\>"
 syn match asm_ca65Cond        "\.endif\>"
+syn match asm_ca65Cond        "\.repeat\>"
+syn match asm_ca65Cond        "\.endrepeat\>"
 "   Macro stuff
 syn match asm_ca65Macro         "\.macro\s\+[a-z0-9_]*" contains=asm_ca65MacroName
 syn match asm_ca65MacroName     "\s[a-z_][a-z0-9_]*"hs=s+1 contained
