@@ -16,7 +16,7 @@ setlocal autoindent " indentexpr isn't much help otherwise
 
 setlocal indentexpr=GetAsmCA65Indent(v:lnum)
 "setlocal indentkeys+=<:>,=elif,=except
-setlocal indentkeys+=<:>,=.else,=.elseif,=.endif,.endmacro,.endstruct,.endunion,.endenum,.endscope,.endproc
+setlocal indentkeys+=<:>,=.else,=.elseif,=.endif,.endmacro,.endstruct,.endunion,.endenum,.endscope,.endproc,.endrepeat
 
 " Only define the function once.
 if exists("*GetAsmCA65Indent")
@@ -131,7 +131,7 @@ function GetAsmCA65Indent(lnum)
 
     " If the previous line began with a block/scope-opening command, indent
     " this line
-    if pline =~ '^\s*\.\(if.*\|macro\|struct\|union\|scope\|proc\)\>'
+    if pline =~ '^\s*\.\(if.*\|macro\|struct\|union\|scope\|proc\|repeat\)\>'
         return plindent + shiftwidth()
     endif
 
