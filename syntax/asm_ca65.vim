@@ -95,6 +95,7 @@ syn region asm_ca65Segment       start=/.segment\s\+"/ skip=/\\"/ end=/"/ contai
 syn keyword asm_ca65AddressSize  DIRECT ZEROPAGE ZP ABS ABSOLUTE NEAR FAR LONG DWORD
 syn keyword asm_ca65SpecialSegment  contained ZEROPAGE ZP CODE RODATA BSS DATA
 syn match asm_ca65Segment               "\.popseg\>"
+syn match asm_ca65SpecialSegmentCommand "\.code\>"
 syn match asm_ca65SpecialSegmentCommand "\.bss\>"
 syn match asm_ca65SpecialSegmentCommand "\.data\>"
 syn match asm_ca65SpecialSegmentCommand "\.rodata\>"
