@@ -1,6 +1,7 @@
 " Vim syntax file
 " Language:     CA65 Assembler for 6502 Architectures
 " Maintainer:   Max Bane <max.bane@gmail.com>
+"               Martin Krischik <krischik@users.sourceforge.net>
 
 " For version 5.x: Clear all syntax items
 " For version 6.0 and later: Quit when a syntax file was already loaded
@@ -73,6 +74,20 @@ syn keyword asm_ca65Mnemonic
  \ CPY DEC DEX DEY EOR INC INX INY JMP JSR LDA LDX LDY LSR NOP ORA PHA PHP PLA
  \ PLP ROL ROR RTI RTS SBC SEC SED SEI STA STX STY TAX TAY TSX TXA TXS TYA
 
+syn keyword asm_ca65WDC
+ \ BRA BRL COP DEA INA JML MVN MVP PEA PEI PER PHB PHD PHK PHX PHY PLB PLD PLP
+ \ PLX PLY REP RTL SEP STP STZ TCD TCS TDC TRB TSB TSC TXY TYX WAI XBA XCE  
+
+syn keyword asm_ca65Rockwell
+ \ BBR BBR0 BBR1 BBR2 BBR3 BBR4 BBR5 BBR6 BBR7
+ \ BBS BBS0 BBS1 BBS2 BBS3 BBS4 BBS5 BBS6 BBS7
+ \ RMB RMB0 RMB1 RMB2 RMB3 RMB4 RMB5 RMB6 RMB7
+ \ SMB SMB0 SMB1 SMB2 SMB3 SMB4 SMB5 SMB6 SMB7
+
+syn keyword asm_ca65MacPack 
+ \ ADD SUB BGE BLT BGT BLE BNZ BZE
+ \ JEQ JNE JMI JPL JCS JCC JVS JVC
+
 " 6502 illegal instruction mnemonics
 syn keyword asm_ca65MnemonicIllegal
  \ ALR ANC ARR AXS DCP ISC LAS LAX RLA RRA SAX SLO SRE
@@ -94,10 +109,11 @@ syn region asm_ca65FileOptString contained start=+"+ skip=+\\"+ end=+"+
 syn region asm_ca65Segment       start=/.segment\s\+"/ skip=/\\"/ end=/"/ contains=asm_ca65SpecialSegment
 syn keyword asm_ca65AddressSize  DIRECT ZEROPAGE ZP ABS ABSOLUTE NEAR FAR LONG DWORD
 syn keyword asm_ca65SpecialSegment  contained ZEROPAGE ZP CODE RODATA BSS DATA
+syn match asm_ca65Segment               "\.pushseg\>"
 syn match asm_ca65Segment               "\.popseg\>"
+syn match asm_ca65SpecialSegmentCommand "\.code\>"
 syn match asm_ca65SpecialSegmentCommand "\.bss\>"
 syn match asm_ca65SpecialSegmentCommand "\.data\>"
-syn match asm_ca65SpecialSegmentCommand "\.rodata\>"
 syn match asm_ca65SpecialSegmentCommand "\.rodata\>"
 syn match asm_ca65SpecialSegmentCommand "\.zeropage\>"
 "   Includes
@@ -149,6 +165,7 @@ syn match asm_ca65Define        "\.define\>"
 syn match asm_ca65Define        "\.undefine\>"
 syn match asm_ca65Define        "\.undef\>"
 "   Structy stuff
+syn match asm_ca65Struct        "\.\(struct\|union\)" contains=asm_ca65StructName
 syn match asm_ca65Struct        "\.\(struct\|union\|scope\)\s\+[a-z0-9_]*" contains=asm_ca65StructName
 syn match asm_ca65Struct        "\.enum\s\?[a-z0-9_]*" contains=asm_ca65StructName
 syn match asm_ca65Struct        "\.end\(struct\|union\|enum\|scope\|proc\)\>"
@@ -243,7 +260,7 @@ syn region asm_ca65String   start=+"+ skip=+\\"+ end=+"+
 syn region asm_ca65Char     start=+'+ skip=+\\'+ end=+'+
 
 " Line comments
-syn match asm_ca65Comment   ";.*" contains=asm_ca65Todo
+syn match asm_ca65Comment   ";.*" contains=asm_ca65Todo,@Spell
 syn keyword asm_ca65Todo    contained TODO FIXME XXX HACK
 
 syn case match
@@ -264,6 +281,16 @@ if version >= 508 || !exists("did_asm_ca65_syntax_inits")
   HiLink asm_ca65Mnemonic   Keyword
   HiLink asm_ca65Label      Identifier
   HiLink asm_ca65Identifier NONE
+
+  if exists("g:asm_ca65_macpack")
+    HiLink asm_ca65MacPack    Statement
+  endif
+  if exists("g:asm_ca65_wdc")
+    HiLink asm_ca65WDC        Keyword
+  endif
+  if exists("g:asm_ca65_rockwell")
+    HiLink asm_ca65Rockwell   Keyword
+  endif
 
   HiLink asm_ca65MnemonicIllegal    Special
 
