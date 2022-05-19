@@ -264,7 +264,7 @@ syn match asm_ca65Comment   ";.*" contains=asm_ca65Todo,@Spell
 syn keyword asm_ca65Todo    contained TODO FIXME XXX HACK
 
 " C-style comments, via .FEATURE c_comments
-syn region asm_ca65Comment   start=+\//*.*+ end=+\*\/+
+syn region asm_ca65Comment   start=+\/\*.*+ end=+\*\/+
 
 syn case match
 
