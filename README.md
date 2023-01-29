@@ -77,7 +77,7 @@ this repository under `~/.vim/bundle/`.
 
 Everything is enabled by setting a buffer's `filetype` to `asm_ca65`. For
 example, if all of your `ca65` assembly source files end with the `.s` and
-`.inc.` suffixes, the follwing suffices in your `.vimrc`:
+`.inc` suffixes, the follwing suffices in your `.vimrc`:
 
 ```vim
 filetype plugin indent on
