@@ -72,7 +72,8 @@ syn match asm_ca65Op "\.NOT\>"
 syn keyword asm_ca65Mnemonic 
  \ ADC AND ASL BCC BCS BEQ BIT BMI BNE BPL BRK BVC BVS CLC CLD CLI CLV CMP CPX
  \ CPY DEC DEX DEY EOR INC INX INY JMP JSR LDA LDX LDY LSR NOP ORA PHA PHP PLA
- \ PLP ROL ROR RTI RTS SBC SEC SED SEI STA STX STY TAX TAY TSX TXA TXS TYA
+ \ PLP ROL ROR RTI RTS SBC SEC SED SEI STA STX STY TAX TAY TSX TXA TXS TYA WAI
+ \ PLX PHX PLY PHY STZ BRA TRB TSB BBR BBS RMB SMB STP
 
 syn keyword asm_ca65WDC
  \ BRA BRL COP DEA INA JML JSL MVN MVP PEA PEI PER PHB PHD PHK PHX PHY PLB PLD
@@ -116,6 +117,7 @@ syn match asm_ca65SpecialSegmentCommand "\.bss\>"
 syn match asm_ca65SpecialSegmentCommand "\.data\>"
 syn match asm_ca65SpecialSegmentCommand "\.rodata\>"
 syn match asm_ca65SpecialSegmentCommand "\.zeropage\>"
+syn match asm_ca65SpecialSegmentCommand "\.code\>"
 "   Includes
 syn match asm_ca65Include    "\.include\>"
 syn match asm_ca65Include    "\.incbin\>"
@@ -256,8 +258,8 @@ syn match asm_ca65Builtin   "\.assert\>"
 syn match asm_ca65Builtin   "\.set\>"
 
 " String and char literals
-syn region asm_ca65String   start=+"+ skip=+\\"+ end=+"+
-syn region asm_ca65Char     start=+'+ skip=+\\'+ end=+'+
+syn region asm_ca65String   start=+"+ end=+"+
+syn region asm_ca65Char     start=+'+ end=+'+
 
 " Line comments
 syn match asm_ca65Comment   ";.*" contains=asm_ca65Todo,@Spell
